@@ -159,9 +159,8 @@
                     if (result.success) {
                         fetchData();
                     } else {
-                        // Smart Error Detection for Oracle ORA-02292
                         if(result.error && result.error.includes("ORA-02292")) {
-                            alert("❌ CANNOT DELETE:\nThis record is currently being used in another table! (For example, an Order is using this Product, or a Shipment is using this Order).\n\nYou must delete the dependent record in the other tab first.");
+                            alert("❌ CANNOT DELETE:\nThis record is currently being used in another table! \n\nYou must delete the dependent record in the other tab first.");
                         } else {
                             alert("Database Error: \n" + result.error);
                         }

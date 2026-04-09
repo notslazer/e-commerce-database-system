@@ -53,7 +53,7 @@ databaseTables.forEach(table => {
   
   app.get(`/api/${table.endpoint}`, async (req, res) => {
     try { 
-      res.json((await runQuery(`SELECT * FROM ${table.name}`)).rows); 
+      res.json((await runQuery(`SELECT * FROM ${table.name} ORDER BY ${table.pk}`)).rows); 
     } catch (err) { res.status(500).json({ error: err.message }); }
   });
 
